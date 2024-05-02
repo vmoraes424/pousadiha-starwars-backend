@@ -10,9 +10,5 @@ export const Comentario = sequelize.define('comentario', {
   comentario: {
     type: DataTypes.STRING(),
     allowNull: false
-  },
-  usuarioLogado: {
-    type: DataTypes.STRING(),
-    allowNull: false
   }
 })

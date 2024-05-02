@@ -97,7 +97,9 @@ export async function quartoById(req, res) {
   const { id } = req.params;
 
   try {
-    const quarto = await Quarto.findByPk(id);
+    const quarto = await Quarto.findByPk(id, {
+      include: [{ model: Comentario }, { model: Avaliacao }]
+    });
     res.status(200).json(quarto);
   } catch (error) {
     res.status(400).send(error);
