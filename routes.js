@@ -8,21 +8,21 @@ import { avaliacaoCreate } from "./controllers/avaliacaoController.js"
 
 const router = Router()
 
-router.get("/quarto", verificaToken, quartoIndex)
-      .post("/quarto", verificaToken, quartoCreate)
-      .put("/quarto/:id", verificaToken, quartoUpdate)
-      .delete("/quarto/:id", verificaToken, quartoDelete)
-      .get("/quarto/:id", verificaToken,quartoById)
-      .get("/quarto/pesquisa/:palavra", verificaToken, quartoPesquisa)
+router.get("/quarto", quartoIndex)
+      .post("/quarto", quartoCreate)
+      .put("/quarto/:id", quartoUpdate)
+      .delete("/quarto/:id", quartoDelete)
+      .get("/quarto/:id",quartoById)
+      .get("/quarto/pesquisa/:palavra", quartoPesquisa)
 
 router.get("/clientes", clienteIndex)
       .post("/clientes", clienteCreate)
       
-router.get('/comentarios', verificaToken, comentarioIndex)
-      .post('/comentarios', verificaToken, comentarioCreate)
+router.get('/comentarios', comentarioIndex)
+      .post('/comentarios', comentarioCreate)
       .delete('/comentarios/:id', comentarioDelete)
 
-router.post('/avaliar', verificaToken, avaliacaoCreate)
+router.post('/avaliar', avaliacaoCreate)
 
 router.post("/login", loginCliente)
 

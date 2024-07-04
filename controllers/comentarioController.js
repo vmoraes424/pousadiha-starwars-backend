@@ -10,7 +10,6 @@ export async function comentarioIndex(req, res) {
 }
 
 export async function comentarioCreate(req, res) {
-  const usuarioLogado = req.usuario_logado_nome;
   const { comentario, quarto_id } = req.body
 
   if (!comentario || !quarto_id) {
@@ -20,7 +19,7 @@ export async function comentarioCreate(req, res) {
 
   try {
     const comentariodoneymar = await Comentario.create({
-      usuarioLogado, comentario, quarto_id
+      comentario, quarto_id
     })
     res.status(201).json(comentariodoneymar)
   } catch (error) {
