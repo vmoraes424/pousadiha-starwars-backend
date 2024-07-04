@@ -30,13 +30,14 @@ export async function loginCliente(req, res) {
         {
           usuario_logado_id: cliente.id, // Corrigido de "cliente.usuario_logado_id" para "cliente.id"
           usuario_logado_nome: cliente.nome, // Corrigido de "cliente.usuario_logado_nome" para "cliente.nome"
+          usuario_logado_admin: cliente.admin, // Corrigido de "cliente.usuario_logado_cargo" para "cliente.cargo"
         },
         process.env.JWT_KEY,
         {
           // expiresIn: '24h',
         }
       );
-      res.status(200).json({ msg: 'Liberado', token });
+      res.status(200).json({ msg: "Liberado", token, admin: cliente.admin });
     }
   } catch (error) {
     res.status(400).json(error);
